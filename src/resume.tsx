@@ -17,13 +17,13 @@ const options = {
 
 const resizeObserverOptions = {}
 
-const maxWidth = 800
+const maxWidth = 1000
 
 type ResumeProps = {
-  file: string
+  file?: string
 }
 
-export default function Resume({ file }: ResumeProps) {
+const ResumeViewer = ({ file }: ResumeProps) => {
   const [containerRef, setContainerRef] = useState<HTMLElement | null>(null)
   const [containerWidth, setContainerWidth] = useState<number>()
 
@@ -31,7 +31,7 @@ export default function Resume({ file }: ResumeProps) {
     const [entry] = entries
 
     if (entry) {
-      setContainerWidth(entry.contentRect.width - 24)
+      setContainerWidth(entry.contentRect.width - 64)
     }
   }, [])
 
@@ -40,16 +40,17 @@ export default function Resume({ file }: ResumeProps) {
   return (
     <div ref={setContainerRef}>
       <Document file={file} options={options}>
-        {Array.from(new Array(1), (element: number) => (
-          <Page
-            key={element}
-            pageNumber={1}
-            width={
-              containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth
-            }
-          />
-        ))}
+        <Page
+          pageNumber={1}
+          width={containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth}
+        />
       </Document>
     </div>
   )
 }
+
+ResumeViewer.defaultProps = {
+  file: "/M_Shahanwaz_Resume.pdf"
+}
+
+export { ResumeViewer }

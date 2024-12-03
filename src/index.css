@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-zinc-200;
+}
+
+.react-pdf__Document {
+  @apply grid !min-h-svh place-items-center p-8;
+}
+
+.react-pdf__Page {
+  @apply overflow-hidden shadow-lg;
+}
