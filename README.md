@@ -1,8 +1,8 @@
 # Shahanwaz Résumé
 
-Visit to view online -> `https://resume.shahanwaz.dev`
+Visit to view online -> [`Live Website`](https://resume.shahanwaz.dev)
 
-Download here -> `https://resume.shahanwaz.dev/M_Shahanwaz_Resume.pdf`
+Download here -> [`Resume`](https://resume.shahanwaz.dev/M_Shahanwaz_Resume.pdf)
 
 ## Tech Stack
 
