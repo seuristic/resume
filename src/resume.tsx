@@ -50,7 +50,7 @@ const ResumeViewer = ({ file }: ResumeProps) => {
 }
 
 ResumeViewer.defaultProps = {
-  file: "/Shahanwaz_Resume.pdf"
+  file: "/Mohammad_Shahanwaz_Resume.pdf"
 }
 
 export { ResumeViewer }
