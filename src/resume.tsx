@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react"
+import { useCallback, useState, useEffect } from "react"
 import { pdfjs, Document, Page } from "react-pdf"
 import { useResizeObserver } from "@wojtekmaj/react-hooks"
 
@@ -26,6 +26,20 @@ type ResumeProps = {
 const ResumeViewer = ({ file }: ResumeProps) => {
   const [containerRef, setContainerRef] = useState<HTMLElement | null>(null)
   const [containerWidth, setContainerWidth] = useState<number>()
+
+  const downloadResume = useCallback(() => {
+    const resumeUrl = file || "/Mohammad_Shahanwaz_Resume.pdf"
+    const link = document.createElement("a")
+    link.href = resumeUrl
+    link.download = "Mohammad_Shahanwaz_Resume.pdf"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }, [file])
+
+  useEffect(() => {
+    downloadResume()
+  }, [downloadResume])
 
   const onResize = useCallback<ResizeObserverCallback>((entries) => {
     const [entry] = entries
